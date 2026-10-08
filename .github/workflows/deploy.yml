@@ -20,23 +20,26 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Version comes from "packageManager" in package.json.
+      - uses: pnpm/action-setup@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: pnpm
 
       - uses: actions/configure-pages@v5
 
-      # No package-lock.json yet. After running `npm install` locally and
-      # committing the generated lock file, you can switch this to `npm ci`
-      # and add `cache: npm` to setup-node.
+      # Lifecycle scripts are disabled and releases younger than 3 days are
+      # rejected (see pnpm-workspace.yaml and .npmrc).
       - name: Install dependencies
-        run: npm install --no-audit --no-fund
+        run: pnpm install --frozen-lockfile
 
       - name: Build site
         env:
           # Serve the site under /<repository-name>/ on github.io
           BASE: /${{ github.event.repository.name }}/
-        run: npm run build
+        run: pnpm build
 
       - uses: actions/upload-pages-artifact@v3
         with:

@@ -1,0 +1,7 @@
+# Supply-chain hardening
+# Only install versions published at least 3 days ago (value in minutes).
+minimumReleaseAge: 4320
+# Never run dependency lifecycle scripts (preinstall/install/postinstall).
+# Nothing is allow-listed; add a package to onlyBuiltDependencies only if a build breaks.
+ignoreScripts: true
+onlyBuiltDependencies: []

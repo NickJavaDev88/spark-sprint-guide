@@ -20,13 +20,15 @@ A trilingual study guide (繁體中文 / English / Español) for developers who 
 
 ## Run it locally
 
-Requires Node.js 20 or later.
+Requires Node.js 20 or later and [pnpm](https://pnpm.io/) (`corepack enable` picks the version pinned in `package.json`).
 
 ```bash
-npm install
-npm run dev        # http://localhost:5173/spark-sprint-guide/
-npm run build      # static site in docs/.vitepress/dist
+pnpm install
+pnpm dev           # http://localhost:5173/spark-sprint-guide/
+pnpm build         # static site in docs/.vitepress/dist
 ```
+
+Supply-chain settings (`pnpm-workspace.yaml`, `.npmrc`): dependency install scripts are disabled, and only package versions published at least 3 days ago are installed.
 
 The site is built with [VitePress](https://vitepress.dev/). Content lives in `docs/` (English at the root, `docs/es/` and `docs/zh-TW/` for the translations). Each language has the same seven pages.
 
@@ -52,7 +54,7 @@ MIT. See [LICENSE](LICENSE).
 
 Guía de estudio trilingüe para desarrolladores que saben Java y quieren hacer su primer pull request a **Apache Spark** en el *PyCon Taiwan 2026 Sprints* ("Your first PR to Apache Spark"), partiendo de cero en Python.
 
-- **Ejecutar en local:** `npm install` y luego `npm run dev` (requiere Node.js 20 o superior).
+- **Ejecutar en local:** `pnpm install` y luego `pnpm dev` (requiere Node.js 20 o superior).
 - **Publicar en GitHub Pages:** sube el repo a la rama `main`, ve a *Settings → Pages* y elige **GitHub Actions** como *Source*. El workflow de `.github/workflows/deploy.yml` hace el resto.
 - **Contenido:** `docs/es/` contiene las siete páginas en español, con la misma estructura que el resto de idiomas.
 - Guía comunitaria no oficial; los datos se comprobaron contra las páginas oficiales el 2026-10-08.
@@ -61,7 +63,7 @@ Guía de estudio trilingüe para desarrolladores que saben Java y quieren hacer 
 
 給已經會 Java、想在 *PyCon Taiwan 2026 衝刺開發*（「Your first PR to Apache Spark」）送出第一個 **Apache Spark** PR 的開發者所寫的三語學習指南，起點是完全沒寫過 Python。
 
-- **本機執行：** `npm install` 後執行 `npm run dev`（需要 Node.js 20 以上）。
+- **本機執行：** `pnpm install` 後執行 `pnpm dev`（需要 Node.js 20 以上）。
 - **發佈到 GitHub Pages：** 把 repo push 到 `main` 分支，到 *Settings → Pages* 將 **Source** 設為 **GitHub Actions**，`.github/workflows/deploy.yml` 會完成其餘工作。
 - **內容：** `docs/zh-TW/` 內有七頁繁體中文內容，結構與其他語言一致。
 - 非官方社群指南；資料已於 2026-10-08 對照官方頁面確認。
